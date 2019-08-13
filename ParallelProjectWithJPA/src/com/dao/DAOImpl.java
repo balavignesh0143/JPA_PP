@@ -152,17 +152,18 @@ public class DAOImpl implements IDAO {
 		return details.getBalance();
 	}
 
-	@Override
+	/*@Override
 	public List<?> printTransactions(int accNo) {
 		em=db.getConnection();
 		em.getTransaction().begin();
 		details=em.find(UserDetails.class,accNo);
 		
-/*		Query query=em.createQuery("select t from TransferDetails t where accNo=:accNo");
+		Query query=em.createQuery("select t from TransferDetails t where accNo=:accNo");
 		query.setParameter("accNo",accNo);
 		@SuppressWarnings("unchecked")
 		List<TransferDetails> transfer=query.getResultList();
-		query.executeUpdate();*/
+		query.executeUpdate();
+		
 		
 		TransferDetails td=new TransferDetails();
 		//td.getTransId();
@@ -181,7 +182,7 @@ public class DAOImpl implements IDAO {
 		em.getTransaction().commit();
 		return null;		
 		
-	}
+	}*/
 	
 	/*
 	public String getTransaction(int accNo)
@@ -191,6 +192,18 @@ public class DAOImpl implements IDAO {
 		UserDetails details=em.find(UserDetails.class,accNo);
 		em.getConnection().commit();
 		return details.getTran();
+	}
+	
+	@Override
+	public void setBalance(int accNo, double balance, String str){
+		em = db.getConnection();
+		em.getTransaction().begin();
+		UserDetails details=(UserDetails) em.find(UserDetails.class,new Int(accNo));	
+		String str = details.getTran() + str;
+		details.setTran(str);
+		details.setBalance(balance);
+		em.merge(details);
+		em.getTransaction().commit();
 	}
 	*/
 

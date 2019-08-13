@@ -79,11 +79,15 @@ public class ServiceImpl implements IService {
 	}
 	
 	/*
-		@Override
+	@Override
 	public String getTransaction(long accNo) {
-		String str = bd.getTransaction(accNo);
+		String str = d.getTransaction(accNo);
 		return str;
-
+	}
+	
+	@Override
+	public void setBalance(long accNo, double bal, String str)  {
+		d.setBalance(accNo, bal, str);
 	}
 	*/
 
